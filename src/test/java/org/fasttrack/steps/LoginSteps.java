@@ -1,6 +1,7 @@
 package org.fasttrack.steps;
 
 import net.thucydides.core.annotations.Step;
+import org.fasttrack.utils.Constants;
 import org.junit.Assert;
 
 public class LoginSteps extends BaseSteps {
@@ -18,12 +19,12 @@ public class LoginSteps extends BaseSteps {
 
     @Step
     public void setUserEmail(String email) {
-        loginPage.setEmailField(email);
+        loginPage.setEmailField(Constants.userEmail);
     }
 
     @Step
     public void setPassword(String password) {
-        loginPage.setPasswordField(password);
+        loginPage.setPasswordField(Constants.userPass);
     }
 
     @Step
@@ -36,16 +37,13 @@ public class LoginSteps extends BaseSteps {
         Assert.assertEquals("Hello, " + userName + "!", accountPage.getWelcomeText());
     }
 
-    @Step
-    public void verifyUserNotLoggedIn(){
-        Assert.assertEquals("Invalid login or password.",loginPage.getErrorMessage());
-    }
+
 
     @Step
     public void doLogin(String email, String pass){
         navigateToLoginPage();
-        setUserEmail(email);
-        setPassword(pass);
+        setUserEmail(Constants.userEmail);
+        setPassword(Constants.userPass);
         clickLogin();
     }
 }

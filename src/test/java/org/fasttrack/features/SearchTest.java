@@ -25,8 +25,7 @@ public class SearchTest extends BaseTest{
         loginSteps.doLogin(Constants.userEmail,Constants.userPass);
         searchSteps.searchForKeyword("bag");
         searchSteps.findProductWithNameInListAndOpen("LARGE CAMERA BAG");
-
-
-
     }
+
+
 }

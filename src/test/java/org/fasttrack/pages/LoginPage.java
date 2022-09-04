@@ -9,14 +9,13 @@ public class LoginPage extends BasePage {
     @FindBy(id = "email")
     private WebElementFacade emailField;
 
-    @FindBy(id = "pass")
+    @FindBy(id = "password")
     private WebElementFacade passwordField;
 
-    @FindBy(id = "send2")
+    @FindBy(css = ".woocommerce-form-login button")
     private WebElementFacade loginButton;
 
-    @FindBy(css = ".error-msg span")
-    private WebElementFacade errorMessageElement;
+
 
     public void setEmailField(String value) {
         typeInto(emailField, value);
@@ -30,8 +29,6 @@ public class LoginPage extends BasePage {
         clickOn(loginButton);
     }
 
-    public String getErrorMessage() {
-        return errorMessageElement.getText();
-    }
+
 
 }
